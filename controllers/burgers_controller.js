@@ -15,10 +15,10 @@ router.get('/', function(req,res){
 	};
 
 	console.log(data);
-
+	res.render("index",burgerObj);
 })
-	res.render("index");
-	// res.send("hey There");
+	
+
 
 });
 

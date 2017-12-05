@@ -1,10 +1,8 @@
 <div class="container">
-	<div class="row">
-		<img src="assets/img/burger.jpg" width="200">
-	</div>
 
 	<div class="row">
 		<h1 class="text-center"> Eat Da Burger! </h1>
+		<img src="/assets/img/burger.jpg" width="200">
 	</div>
 
 	<div class="row">	
@@ -25,5 +23,91 @@
 			<p> Enter a burger you want to eat and click the submit button </p>
 		</div>
 	</div>
+	
+
+	<h1>Burgers</h1>
+
+	<h2> Burgers that are not Devoured </h2>
+	
+	<ol>
+		{{#each burgers}}
+		{{#unless devoured}}
+		<li><p> {{this.burger_name}} <button data-id="{{this.id}}" class="devourit btn btn-primary">Devour it</button></li>
+		{{/unless}}
+		{{/each}}
+	</ol>
+
+	
+	<h2> Burgers that are Devoured </h2>
+	
+	<ol>
+		{{#each burgers}}
+		{{#if devoured}}
+		<li><p> {{this.burger_name}}</li>
+		{{/if}}
+		{{/each}}
+	</ol>
+
+
+
 
 </div>
+
+
+<script>
+$(function() {
+
+  $("body").on('click', "#submit", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newBurger = {
+      burger_name: $("#burger").val(),
+      devoured: 0
+    };
+
+    // Send the POST request.
+    $.ajax("/api/burgers", {
+      type: "POST",
+      data: newBurger
+    }).then(
+      function() {
+        console.log("created new burger");
+        // Reload the page to get the updated list
+        location.reload();
+      });
+  });
+
+
+
+  $("body").on("click", ".devourit", function(event) {
+    var id = $(this).data("id");
+    var devoured = $(this).data(".devourit");
+
+    var newBurgerState = {
+      devoured: 1
+    };
+
+    // Send the PUT request.
+    $.ajax("/api/burgers/" + id, {
+      type: "PUT",
+      data: newBurgerState
+    }).then(
+      function() {
+        console.log("changed sleep to", newBurgerState);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+
+
+
+
+
+
+
+})
+</script>
+
