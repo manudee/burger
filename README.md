@@ -9,17 +9,17 @@ The app stores this backend data in a MySQL DB to keep track of whether the wich
 
 # Functionality
 * Landing Page 
-	![GitHub Logo](/assets/img/landing.jpg)
+	![GitHub Logo](public/assets/img/landing.jpg)
 
 * Submitting a new Wich
-	 ![GitHub Logo](/assets/img/newWich.jpg)
+	 ![GitHub Logo](public/assets/img/newWich.jpg)
 
 * Listing of wiches to be devoured
-	 ![GitHub Logo](/assets/img/devouredFalse.jpg)
+	 ![GitHub Logo](public/assets/img/devouredFalse.jpg)
 
 
 * Wiches Devoured after clicking on "Devour It " button
-	 ![GitHub Logo](/assets/img/devouredTrue.jpg)
+	 ![GitHub Logo](public/assets/img/devouredTrue.jpg)
 
 
 # Technology Stack using MVC structure
