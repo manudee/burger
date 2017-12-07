@@ -1,12 +1,12 @@
 <div class="container">
 
 	<div class="row">
-		<h1 class="text-center"> Eat Da Burger! </h1>
-		<img src="/assets/img/burger.jpg" width="200">
+		<h1 class="text-center"> Eat Da Wich! </h1>
+		<img class="img-center center-block" src="/assets/img/wich.jpg" width="200">
 	</div>
 
 	<div class="row">	
-		<div class="form-group text-center">
+		<div class="form-group text-center col-md-6 col-md-offset-3">
 			<label for="burger"></label>
 			<textarea class="form-control" rows="5" id="burger"></textarea>
 		</div>
@@ -14,47 +14,56 @@
 
 	<div class="row">
 		<div class="text-center">
-			<button type="button" class="btn btn-primary" id="submit">Submit</button>
+			<button type="button" class="btn btn-warning" id="submit">Submit</button>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class='text-center'>
-			<p> Enter a burger you want to eat and click the submit button </p>
+			<p> Enter a Wich you want to eat and click the submit button </p>
 		</div>
 	</div>
 	
-
-	<h1>Burgers</h1>
-
-	<h2> Burgers that are not Devoured </h2>
 	
+	<div class="row">
+		<div class='text-center'>
+			<h1> Which Wich you want </h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<h2> Wiches that are not Devoured </h2>
+
+
+
 	<ol>
 		{{#each burgers}}
 		{{#unless devoured}}
-		<li><p> {{this.burger_name}} <button data-id="{{this.id}}" class="devourit btn btn-primary">Devour it</button></li>
+		<li><p> {{this.burger_name}} <button data-id="{{this.id}}" class="devourit btn btn-success">Devour it</button></li>
 		{{/unless}}
 		{{/each}}
 	</ol>
-
+</div>
 	
-	<h2> Burgers that are Devoured </h2>
+	<div class="col-sm-6">
+		<h2> Wiches that are Devoured </h2>
 	
-	<ol>
-		{{#each burgers}}
-		{{#if devoured}}
-		<li><p> {{this.burger_name}}</li>
-		{{/if}}
-		{{/each}}
-	</ol>
-
-
+		<ol>
+			{{#each burgers}}
+			{{#if devoured}}
+			<li><p> {{this.burger_name}}</li>
+			{{/if}}
+			{{/each}}
+		</ol>
+	</div>
 
 
 </div>
+</div>
 
 
-<script>
+<!--<script>
 $(function() {
 
   $("body").on('click', "#submit", function(event) {
@@ -104,5 +113,5 @@ $(function() {
 
 
 })
-</script>
+</script>-->
 
